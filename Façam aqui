@@ -1,8 +1,91 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "pilha.h"
+#include "fila.h"
+
+int lin;
+int col;
+int alin;
+int acol;
+int **m;
+
+int** CriaMapa(int Linhas, int Colunas){
+  int i, j;
+  m** = (int**)malloc(Linhas*sizeof(int*))
+  for(i=0; i<Linhas; i++){
+    m[i] = (int*)malloc(Colunas*sizeof(int))
+      for(j=0; j<Colunas; j++){
+        m[i][j] = 0;
+      }
+    return m;  
+ }
+ 
+int AB(int n){
+  int i;
+  if((alin+n) > lin){
+    i = alin;
+    while(i != lin){
+      m[i][acol] = m[i][acol] + 1;
+      i++;
+    }
+  }else{
+    for(i = alin; i < (alin+n); i++){
+      m[i][acol] = m[i][acol] + 1;
+    }
+  }
+  alin = i;
+}
+
+int AC(int n){
+  int i;
+  if((alin-n) < 0){
+    i = alin;
+    while(i != 0){
+      m[i][acol] = m[i][acol] + 1;
+      i--;
+    }
+  }else{
+    for(i = alin; i < (alin-n); i--){
+      m[i][acol] = m[i][acol] + 1;
+    }
+  }
+  alin = i;
+}
+
+int ES(int n){
+  int j;
+  if((acol-n) < 0){
+    j = acol;
+    while(j != 0){
+      m[alin][j] = m[alin][j] + 1;
+      j--;
+    }
+  }else{
+    for(j = acol; j < (acol-n); j--){
+      m[alin][j] = m[alin][j] + 1;
+    }
+  }
+  acol = j;
+}
+
+int DI(int n){
+  int j;
+  if((acol+n) > col){
+    j = acol;
+    while(j != col){
+      m[alin][j] = m[alin][j] + 1;
+      j++;
+    }
+  }else{
+    for(j = acol; j < (acol+n); j++){
+      m[alin][j] = m[alin][j] + 1;
+    }
+  }
+  acol = j;
+}
 
 int main(){
-
-.....
+  int i, j;
+  m = CriaMatriz(Linhas,Colunas)
 
 }
